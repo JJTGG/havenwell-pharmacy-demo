@@ -75,7 +75,7 @@ const publicResources = [
     title: "NAFDAC Med Safety information",
     description:
       "Read NAFDAC's information about reporting suspected substandard or falsified medical products and adverse drug reactions.",
-    href: "https://nafdac.gov.ng/nafdac-launches-improved-med-safety-app-to-strengthen-reporting-of-substandard-and-falsified-medical-products-and-adverse-drug-reactions/",
+    href: "https://nafdac.gov.ng/nafdac-launches-improved-med-safety-app-to-strengthen-reporting-of-substandard-and-falsified-medical-products-and-adverse-drug-reactions-in-nigeria/",
     linkLabel: "Read the official announcement"
   },
   {
