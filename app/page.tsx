@@ -3,7 +3,6 @@ import Link from "next/link";
 import PageHero from "@/components/page-hero";
 
 export const metadata: Metadata = {
-  title: "Home",
   description:
     "Explore Havenwell Pharmacy, a fictional community-pharmacy website concept by TGG HUB focused on clear information, accessible navigation and customer communication."
 };
