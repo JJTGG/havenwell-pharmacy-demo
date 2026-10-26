@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navigationItems = [
   { href: "/", label: "Home" },
@@ -15,10 +15,30 @@ const navigationItems = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   function closeMenu() {
     setMenuOpen(false);
   }
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -47,6 +67,7 @@ export default function SiteHeader() {
           </Link>
 
           <button
+            ref={menuButtonRef}
             aria-controls="primary-navigation"
             aria-expanded={menuOpen}
             aria-label={
@@ -88,7 +109,11 @@ export default function SiteHeader() {
           </nav>
 
           <div className="site-header__action">
-            <Link className="button button--small" href="/contact">
+            <Link
+              className="button button--small"
+              href="/contact"
+              onClick={closeMenu}
+            >
               Get in touch
               <span aria-hidden="true">↗</span>
             </Link>
