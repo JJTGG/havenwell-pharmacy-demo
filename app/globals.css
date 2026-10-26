@@ -866,6 +866,14 @@ h4 {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background: var(--color-paper);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.menu-toggle--open {
+  border-color: var(--color-border-strong);
+  background: var(--color-green-light);
 }
 
 .menu-toggle span {
@@ -874,6 +882,21 @@ h4 {
   height: 2px;
   border-radius: 2px;
   background: var(--color-green-dark);
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.menu-toggle--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .site-footer {
